@@ -1,4 +1,16 @@
 <template>
-    <h1>Fund Details</h1>
-    {fundName}
+    <lightning-card  variant="Narrow"  title={fundName} icon-name="standard:note">
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col">
+                Established Date: <lightning-formatted-date-time value={establishedDate}></lightning-formatted-date-time>
+            </div>
+            <div class="slds-col">
+                Balance: <lightning-formatted-number value={balance} format-style="currency" currency-code="USD"></lightning-formatted-number>
+            </div>
+            <div class="slds-col">
+                Active: {active}
+            </div>
+        </div>
+        <p slot="footer">Arizona Community Foundation</p>
+    </lightning-card>
 </template>

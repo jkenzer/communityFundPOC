@@ -1,17 +1,12 @@
 <template>
-  <h1>Availabe Funds</h1>
+  <div class="slds-text-heading_medium">Availabe Funds</div>
   <template if:true={formattedList}>
-    <lightning-layout multiple-rows="true" pull-to-boundary="small">
-      <template for:each={formattedList} for:item="fund">
-        <lightning-layout-item key={fund.Id} size="3" class="slds-p-around_x-small">
-          <lightning-card title={fund.Name} class="bear-tile">
-            <div class="slds-p-horizontal_small">
-              <a href={fund.formattedURL}>View Fund</a>
-            </div>
-          </lightning-card>
-          <!-- End bear tile -->
-        </lightning-layout-item>
-      </template>
-    </lightning-layout>
+    <lightning-datatable
+      key-field="id"
+      hide-checkbox-column
+      show-row-number-column
+      data={formattedList}
+      columns={columns}>
+    </lightning-datatable>
   </template>
 </template>

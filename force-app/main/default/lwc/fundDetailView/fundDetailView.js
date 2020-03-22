@@ -1,4 +1,4 @@
-import { LightningElement, wire } from 'lwc';
+import { LightningElement, wire, track } from 'lwc';
 import getFund from '@salesforce/apex/CommunityFundController.getFund';
 
 export default class FundDetailView extends LightningElement {
@@ -6,11 +6,12 @@ export default class FundDetailView extends LightningElement {
   fund={};
   fundName = '';
   parameters = {};
+  establishedDate = '';
+  active = '';
+  balance = '';
 
   connectedCallback() {
-
       this.parameters = this.getQueryParameters();
-      console.log(this.parameters.fundid);
   }
 
   @wire(getFund, {recordId: '$parameters.fundid'})
@@ -19,8 +20,10 @@ export default class FundDetailView extends LightningElement {
       this.error = error;
     } else if (data) {
       this.fund = data;
-      console.log(this.fund.Fund__r.Name);
       this.fundName = this.fund.Fund__r.Name;
+      this.establishedDate = this.fund.Fund__r.Established_Date__c;
+      this.active = this.fund.Fund__r.Active__c;
+      this.balance = this.fund.Fund__r.Fund_Balance__c;
     }
   }
   getQueryParameters() {
