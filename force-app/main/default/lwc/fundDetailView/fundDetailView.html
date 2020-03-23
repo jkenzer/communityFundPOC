@@ -1,14 +1,33 @@
 <template>
     <lightning-card  variant="Narrow"  title={fundName} icon-name="standard:note">
-        <div class="slds-grid slds-wrap">
-            <div class="slds-col">
-                Established Date: <lightning-formatted-date-time value={establishedDate}></lightning-formatted-date-time>
-            </div>
-            <div class="slds-col">
-                Balance: <lightning-formatted-number value={balance} format-style="currency" currency-code="USD"></lightning-formatted-number>
-            </div>
-            <div class="slds-col">
-                Active: {active}
+        <div class="slds-form-element">
+            <div style="width: 90%;margin: auto;">
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-3">
+                        <label class="slds-form-element__label">
+                            Established Date: 
+                        </label>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static"><lightning-formatted-date-time value={establishedDate}></lightning-formatted-date-time></div>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-3">
+                        <label class="slds-form-element__label">
+                            Balance:
+                        </label>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static"><lightning-formatted-number value={balance} format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-3">
+                        <label class="slds-form-element__label">
+                            Active:
+                        </label>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">{active}</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <p slot="footer">Arizona Community Foundation</p>
